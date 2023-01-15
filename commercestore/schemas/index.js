@@ -6,11 +6,13 @@ import blockContent from './blockContent'
 import localeString from './locale/String'
 import localeText from './locale/Text'
 import localeBlockContent from './locale/BlockContent'
-// import {user, account} from 'next-auth-sanity/schemas'
+import {user, account} from 'next-auth-sanity/schemas'
 
 export const schemaTypes = [
   products,
   category,
+  user,
+  account,
   blockContent,
   localeBlockContent,
   localeString,
