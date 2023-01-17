@@ -16,6 +16,8 @@ type Props = {
 const Home = ({ categories, products }: Props) => {
   console.log(categories)
 
+  const addItemToBasket = () => {}
+
   const showProduct = (category: number) => {
     return products
       .filter((product) => product.category._ref === categories[category]._id)
