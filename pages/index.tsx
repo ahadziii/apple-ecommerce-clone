@@ -1,7 +1,6 @@
 import { Tab } from "@headlessui/react"
 import type { GetServerSideProps, NextPage } from "next"
 import Head from "next/head"
-import Image from "next/image"
 import Header from "../components/Header"
 import Landing from "../components/Landing"
 import Product from "../components/Product"
@@ -14,9 +13,7 @@ type Props = {
 }
 
 const Home = ({ categories, products }: Props) => {
-  console.log(categories)
 
-  const addItemToBasket = () => {}
 
   const showProduct = (category: number) => {
     return products
