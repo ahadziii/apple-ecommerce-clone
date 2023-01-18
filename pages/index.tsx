@@ -1,5 +1,5 @@
 import { Tab } from "@headlessui/react"
-import type { GetServerSideProps, NextPage } from "next"
+import type { GetServerSideProps } from "next"
 import Head from "next/head"
 import Header from "../components/Header"
 import Landing from "../components/Landing"
@@ -13,8 +13,6 @@ type Props = {
 }
 
 const Home = ({ categories, products }: Props) => {
-
-
   const showProduct = (category: number) => {
     return products
       .filter((product) => product.category._ref === categories[category]._id)

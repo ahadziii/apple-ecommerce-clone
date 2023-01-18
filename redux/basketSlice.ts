@@ -4,11 +4,11 @@ import { useSelector } from "react-redux"
 import { RootState } from "./store"
 
 export interface BasketState {
-  items: Product[]
+  products: Product[]
 }
 
 const initialState: BasketState = {
-  items: [],
+  products: [],
 }
 
 export const basketSlice = createSlice({
@@ -16,14 +16,14 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     addToBasket: (state, action: PayloadAction<Product>) => {
-      state.items = [...state.items, action.payload]
+      state.products = [...state.products, action.payload]
     },
     removeFromBasket: (state, action: PayloadAction<{ id: string }>) => {
-      const index = state.items.findIndex(
-        (item) => item._id === action.payload.id
+      const index = state.products.findIndex(
+        (product) => product._id === action.payload.id
       )
 
-      let newBasket = [...state.items]
+      let newBasket = [...state.products]
 
       if (index >= 0) {
         newBasket.splice(index, 1)
@@ -33,7 +33,7 @@ export const basketSlice = createSlice({
         )
       }
 
-      state.items = newBasket
+      state.products = newBasket
     },
   },
 })
@@ -42,15 +42,15 @@ export const basketSlice = createSlice({
 export const { addToBasket, removeFromBasket } = basketSlice.actions
 
 // Selectors -> retrieving items in state to use in different components
-export const selectBasketItems = (state: RootState) => state.basket.items
+export const selectBasketItems = (state: RootState) => state.basket.products
 
 export const selectBasketItemsWithId = (id: string, state: RootState) => {
-  state.basket.items.filter((item: Product) => item._id === id)
+  state.basket.products.filter((product: Product) => product._id === id)
 }
 
 export const selectBasketTotal = (state: RootState) => {
-  state.basket.items.reduce(
-    (total: number, item: Product) => (total += item.price),
+  state.basket.products.reduce(
+    (total: number, product: Product) => (total += product.price),
     0
   )
 }
