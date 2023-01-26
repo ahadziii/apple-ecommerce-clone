@@ -43,11 +43,6 @@ function Checkout() {
       }
     )
 
-    //  TODO : check why this is returning 500
-    // if (((checkoutSession as any).statusCode = 500)) {
-    //   console.log((checkoutSession as any).message)
-    //   return
-    // }
 
     // Redirect to checkout
     const stripe = await getStripe()
