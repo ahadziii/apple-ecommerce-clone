@@ -43,7 +43,11 @@ function Checkout() {
       }
     )
 
-
+    // Internal Server Error
+    if ((checkoutSession as any).statusCode === 500) {
+      console.error((checkoutSession as any).message)
+      return
+    }
     // Redirect to checkout
     const stripe = await getStripe()
     const { error } = await stripe!.redirectToCheckout({
