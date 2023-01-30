@@ -11,10 +11,10 @@ import {
 } from "@heroicons/react/outline"
 import Button from "../components/Button"
 import { useMediaQuery } from "react-responsive"
-// import { useSession } from "next-auth/react"
 import Currency from "react-currency-formatter"
 import { GetServerSideProps } from "next"
 import { fetchLineItems } from "../utils/fetchLineItems"
+import { useSession } from "next-auth/react"
 
 interface Props {
   products: StripeProduct[]
@@ -31,7 +31,7 @@ function Success({ products }: Props) {
     (acc, product) => acc + product.price.unit_amount / 100,
     0
   )
-  // const { data: session } = useSession()
+   const { data: session } = useSession()
 
   const handleShowOrderSummary = () => {
     setShowOrderSummary(!showOrderSummary)
@@ -87,7 +87,7 @@ function Success({ products }: Props) {
               </p>
               <h4 className="text-lg">
                 Thank you{" "}
-                {/* {session ? session.user?.name?.split(" ")[0] : "Guest"} */}
+                {session ? session.user?.name?.split(" ")[0] : "Guest"}
               </h4>
             </div>
           </div>
