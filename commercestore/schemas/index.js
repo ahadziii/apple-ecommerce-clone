@@ -11,10 +11,10 @@ import {user, account} from 'next-auth-sanity/schemas'
 export const schemaTypes = [
   products,
   category,
-  user,
-  account,
   blockContent,
   localeBlockContent,
   localeString,
   localeText,
+  user,
+  account,
 ]
